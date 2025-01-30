@@ -15,7 +15,13 @@
 }
 
 body {
+  margin: 0;
+  overflow: hidden;
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.a-enter-vr {
+  display: none !important;
 }

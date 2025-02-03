@@ -22,6 +22,157 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+}
+
 .a-enter-vr {
   display: none !important;
 }
+
+/* Esconder a barra de rolagem em navegadores WebKit */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Estilos para o canvas do AR.js */
+.a-canvas {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 1;
+}
+
+/* Estilos específicos para o vídeo da câmera */
+video#arjs-video[style] {
+  width: 100vw !important;
+  height: 100vh !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: -2 !important;
+  object-fit: cover !important;
+  margin: 0 !important;
+}
+
+.quadrosAnimados {
+  border-radius: 20px;
+  position: fixed;
+  box-shadow: 0px 0px 30px black inset;
+}
+
+@keyframes flutuaQuadrodos {
+  0% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(10px) scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.quadro2 {
+  width: 100px;
+  height: 100px;
+  bottom: 30%;
+  left: 2%;
+  animation: flutuaQuadrodos 3s ease-in-out infinite alternate;
+  box-shadow: 0px 0px 30px #3c1b43 inset;
+}
+
+.quadro3 {
+  width: 60px;
+  height: 60px;
+  bottom: 45%;
+  left: 20%;
+  border-radius: 10px;
+  animation: flutuaQuadrodos 3s 1s ease-in-out infinite alternate;
+  box-shadow: 0px 0px 50px #388697 inset;
+}
+
+.quadro4 {
+  width: 50px;
+  height: 50px;
+  bottom: 50%;
+  left: 5%;
+  border-radius: 10px;
+  animation: flutuaQuadrodos 3s 2s ease-in-out infinite alternate;
+  box-shadow: 0px 0px 30px #daf5ff inset;
+}
+
+.areaBotoes {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  z-index: 5000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btnTroca {
+  background-color: #0a0a0a;
+  width: 50px;
+  height: 50px;
+  font-size: 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #388697;
+  text-shadow: 0px 0px 3px white;
+  animation: animaBotoes 3s infinite ease-in-out alternate;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease-in-out;
+}
+
+@keyframes animaBotoes {
+  0% {
+    text-shadow: 0px 0px 1px white;
+    box-shadow: 0px 0px 10px #388697;
+  }
+
+  100% {
+    text-shadow: 0px 0px 3px white;
+    box-shadow: 0px 0px 20px #388697;
+  }
+}
+
+.btnTroca:hover {
+  transform: scale(1.1);
+}
+
+.btnTroca:active {
+  transform: scale(0.95);
+}
+
+/* Adicione foco para acessibilidade */
+.btnTroca:focus {
+  outline: 2px solid #388697;
+  outline-offset: 2px;
+}
+
+.botaoVoltar {
+  border-top-right-radius: 100%;
+}
+
+.botaoAvancar {
+  border-top-left-radius: 100%;
+}
+/* Podemos remover ou comentar o estilo anterior */
+/* .arjs-video {
+  ...
+} */
